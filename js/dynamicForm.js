@@ -7,8 +7,8 @@ const dynamicForm = () => {
 		const elements = options.elements;
 		const value = options.value;
 		elements.forEach(element => {
-			const showIf = element.dataset.showIfValue;
-			const method = (value === showIf) ? 'remove' : 'add';
+			let showIfValues = element.dataset.showIfValue.split(',').map(item => item.trim());
+			const method = (showIfValues.indexOf(value) > -1) ? 'remove' : 'add';
 			element.classList[method](hiddenClass);
 		});
 	};
