@@ -15,17 +15,20 @@
 			<input class="js-input-name" id="name" type="text" />
 		</form>
 
-		<p class="js-text-1"></p>
-		<p class="js-text-2"></p>
-		<p class="js-text-3"></p>
+		<p>User name is: <span class="js-text-1"></span></p>
 
 	<script src="js/Observable.class.js"></script>
 	<script>
 
 	const input = document.querySelector('.js-input-name');
 	const text1 = document.querySelector('.js-text-1');
-	const text2 = document.querySelector('.js-text-2');
-	const text3 = document.querySelector('.js-text-3');
+
+	const updateText = (text) => text1.textContent = text;
+
+	const textObserver = new Observable();
+	textObserver.subscribe(updateText);
+
+	input.addEventListener('keyup', e => textObserver.notify(e.target.value));
 
 	</script>
 	</body>
