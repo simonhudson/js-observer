@@ -1,19 +1,17 @@
 const hiddenClass = 'visuallyhidden';
 
-const setElementVisibility = (options) => {
-
-	const elements = options.elements;
-	const value = options.value;
-
-	elements.forEach(element => {
-		const showIf = element.dataset.showIfValue;
-		const method = (value === showIf) ? 'remove' : 'add';
-		element.classList[method](hiddenClass);
-	});
-
-};
 
 const dynamicForm = () => {
+
+	const setElementVisibility = (options) => {
+		const elements = options.elements;
+		const value = options.value;
+		elements.forEach(element => {
+			const showIf = element.dataset.showIfValue;
+			const method = (value === showIf) ? 'remove' : 'add';
+			element.classList[method](hiddenClass);
+		});
+	};
 
 	const forms = Array.from(document.querySelectorAll('.js-dynamic-form'));
 	if (!forms || !forms.length) return;
