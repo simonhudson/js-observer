@@ -39,25 +39,28 @@
 					<span data-show-if-field="gender" data-show-if-value="male">Male</span>
 					<span data-show-if-field="gender" data-show-if-value="female">Female</span>
 				</p>
+				<label for="city">City</label>
+				<select id="city" name="city">
+					<option>Choose</option>
+					<option value="Derby">Derby</option>
+					<option value="Nottingham">Nottingham</option>
+					<option value="Leicester">Leicester</option>
+				</select>
+				<p>You have chosen
+					<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
+					<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
+					<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
+				</p>
+				<p>You live in
+					<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
+					<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
+					<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
+				</p>
+				<label for="username">Username</label>
+				<input id="username" name="username" type="text" />
+				<p>Hello <span data-show-if-field="username" data-show-if-value="Bob">Bob!</span></p>
 			</fieldset>
 
-			<label for="city">City</label>
-			<select id="city" name="city">
-				<option>Choose</option>
-				<option value="Derby">Derby</option>
-				<option value="Nottingham">Nottingham</option>
-				<option value="Leicester">Leicester</option>
-			</select>
-			<p>You have chosen
-				<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
-				<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
-				<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
-			</p>
-			<p>You live in 
-				<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
-				<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
-				<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
-			</p>
 		</form>
 
 	<script src="js/Observable.class.js"></script>

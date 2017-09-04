@@ -28,9 +28,12 @@ const dynamicForm = () => {
 			elementObserver.subscribe(setElementVisibility);
 			const name = element.getAttribute('name');
 			const dependentElements = Array.from(document.querySelectorAll(`[data-show-if-field="${name}"]`));
-			element.addEventListener('change', e => {
-				const value = element.value;
-				elementObserver.notify({value, elements: dependentElements});
+			const events = ['keyup', 'change'];
+			events.forEach(evt => {
+				element.addEventListener(evt, e => {
+					const value = element.value;
+					elementObserver.notify({value, elements: dependentElements});
+				});
 			});
 		});
 
