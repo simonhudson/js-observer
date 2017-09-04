@@ -6,29 +6,64 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="" rel="stylesheet" />
 		<style>
+			.visuallyhidden {
+				clip: rect(0 0 0 0);
+				height: 0;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 0;
+			}
 		</style>
 	</head>
 	<body>
 
+		<h1>JS Observable</h1>
+
+		<h2>Update text</h2>
 		<form>
 			<label for="name">Name</label>
 			<input class="js-input-name" id="name" type="text" />
 		</form>
-
 		<p>User name is: <span class="js-text-1"></span></p>
 
+		<h2>Dynamic form</h2>
+		<form class="js-dynamic-form">
+			<fieldset>
+				<legend>Gender</legend>
+				<label for="gender-male">Male</label>
+				<input id="gender-male" name="gender" type="radio" value="male"/>
+				<label for="gender-female">Female</label>
+				<input id="gender-female" name="gender" type="radio" value="female"/>
+				<p>You have chosen
+					<span data-show-if-field="gender" data-show-if-value="male">Male</span>
+					<span data-show-if-field="gender" data-show-if-value="female">Female</span>
+				</p>
+			</fieldset>
+
+			<label for="city">City</label>
+			<select id="city" name="city">
+				<option>Choose</option>
+				<option value="Derby">Derby</option>
+				<option value="Nottingham">Nottingham</option>
+				<option value="Leicester">Leicester</option>
+			</select>
+			<p>You have chosen
+				<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
+				<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
+				<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
+			</p>
+			<p>You live in 
+				<span data-show-if-field="city" data-show-if-value="Derby">Derby</span>
+				<span data-show-if-field="city" data-show-if-value="Nottingham">Nottingham</span>
+				<span data-show-if-field="city" data-show-if-value="Leicester">Leicester</span>
+			</p>
+		</form>
+
 	<script src="js/Observable.class.js"></script>
+	<script src="js/updateName.js"></script>
+	<script src="js/dynamicForm.js"></script>
 	<script>
-
-	const input = document.querySelector('.js-input-name');
-	const text1 = document.querySelector('.js-text-1');
-
-	const updateText = (text) => text1.textContent = text;
-
-	const textObserver = new Observable();
-	textObserver.subscribe(updateText);
-
-	input.addEventListener('keyup', e => textObserver.notify(e.target.value));
 
 	</script>
 	</body>
